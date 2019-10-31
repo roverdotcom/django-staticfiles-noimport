@@ -23,7 +23,7 @@ constraints that are acceptable in our environment:
 - Static assets will be served at the same path in all
   environments (i.e. `STATIC_URL` doesn't vary per
   environment.)
-- Django "apps" may not attempt to manipulate any static
+- Django "apps" may not manipulate any static
   file handling behaviors during app initialization.
 - `INSTALLED_APPS` must reference app names as strings,
   as opposed to importing an `AppConfig` directly.
@@ -31,7 +31,8 @@ constraints that are acceptable in our environment:
 ## Setup
 
 1. Ensure you have an `os.environ`-agnostic settings module.
-   - This may be achieved by creating a simple `settings/apps.py` module that is imported from your primary settings with glob syntax like: `from .apps import *`. - - This file may define `SECRET_KEY` which is the one required non-staticfiles related settings and will be injected as `SECRET_KEY=staticfiles` when using this application.
+   - This may be achieved by creating a simple `settings/apps.py` module that is imported from your primary settings with glob syntax like: `from .apps import *`.
+   - This file may define `SECRET_KEY` which is the one required non-staticfiles related settings and will be injected as `SECRET_KEY=staticfiles` when using this application.
 2. Use the provided `staticfiles_noimport.finders.AppDirectoriesNoImportFinder` in your `STATICFILES_FINDERS` settings. (See included example.)
 3. Use `collectstatic` and `findstatic` directly without using the typical `manage.py` entrypoint. You'll need to set `DJANGO_SETTINGS_MODULE` for things to work as expected.
 
