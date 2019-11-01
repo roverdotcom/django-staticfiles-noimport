@@ -24,4 +24,8 @@ cmd_options['use_default_ignore_patterns'] = False
 # base management command teardown,
 # which shouldn't impact staticfiles
 cmd.leave_locale_alone = True
-cmd.execute(**cmd_options)
+cmd.requires_system_checks = False
+
+# Extract positional args
+args = cmd_options.pop('args')
+cmd.execute(*args, **cmd_options)

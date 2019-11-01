@@ -25,14 +25,15 @@ class AppDirectoriesNoImportFinder(BuiltInAppDirectoriesFinder):
         - self.apps: a list of apps
         - self.storages: a dict of app names to storages
         """
-        self.apps = settings.INSTALLED_APPS
+        self.apps = []
         self.storages = {}
-        for app in self.apps:
+        for app in settings.INSTALLED_APPS:
             spec = importlib.util.find_spec(app)
             dir_name = os.path.dirname(spec.origin)
             app_storage = self.storage_class(os.path.join(dir_name, self.source_dir))
             if os.path.isdir(app_storage.location):
                 self.storages[app] = app_storage
+                self.apps.append(app)
 
 
 __all__ = ["AppDirectoriesNoImportFinder"]

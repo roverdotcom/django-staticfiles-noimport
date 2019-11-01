@@ -14,8 +14,7 @@ class TestCollectStatic(unittest.TestCase):
         os.environ["SECRET_KEY"] = "staticfiles"
         os.environ["DJANGO_SETTINGS_MODULE"] = "settings.static"
 
-        # Set current working directory to the root
-        # of exampleproj
+        # Set current working directory to the root of exampleproj
         tests_root = os.path.dirname(os.path.abspath(__file__))
         os.chdir(os.path.join(tests_root, "exampleproj"))
         super().setUp()
