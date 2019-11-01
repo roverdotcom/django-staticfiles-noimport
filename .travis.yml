@@ -10,6 +10,7 @@ env:
   - DJANGO_VERSION=3.0b1
 install:
   - pip install -q Django==$DJANGO_VERSION
+  - pip install -q pytest
   - python setup.py -q install
 script:
-  - python setup.py test
+  - py.test
