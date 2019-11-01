@@ -16,7 +16,6 @@ class GZipPostProcessMixin:
         retval = super().post_process(*args, **kwargs)
         # This operation only makes sense for local storage
         # Since we're primarily solving for uWSGI's gzip serving mode
-        print(staticfiles_storage.__class__.__name__)
         if isinstance(staticfiles_storage, FileSystemStorage):
             flattened_files = []
             for k, v in self.hashed_files.items():
