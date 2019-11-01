@@ -1,7 +1,5 @@
 language: python
 python:
-  - "3.4"
-  - "3.5"
   - "3.6"
   - "3.7"
   - "3.8"
@@ -11,5 +9,9 @@ env:
   - DJANGO_VERSION=2.2.6
   - DJANGO_VERSION=3.0b1
 install:
-  - pip install -q Django=$DJANGO_VERSION
-  - python setup.py -q install
+  - pip install Django==$DJANGO_VERSION
+  - pip install pytest black
+  - python setup.py install
+script:
+  - py.test
+  - black . --check

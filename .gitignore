@@ -1,2 +1,6 @@
 .vscode
 *.sw[op]
+venv
+build
+dist
+django_staticfiles_noimport.egg-info
