@@ -24,9 +24,6 @@ class TestGZipManifestStaticFilesStorage(unittest.TestCase):
 
     def test_no_gzip_other_filetypes(self):
         subprocess.check_call(["collectstatic"])
-        import pdb
-
-        pdb.set_trace()
         self.assertTrue(os.path.isfile(os.path.join(self.static_root, "foo.txt")))
         self.assertFalse(os.path.isfile(os.path.join(self.static_root, "foo.txt.gz")))
 
