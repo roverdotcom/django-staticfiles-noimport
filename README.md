@@ -31,10 +31,10 @@ constraints that are acceptable in our environment:
 ## Setup
 
 1. Ensure you have an `os.environ`-agnostic settings module.
-   - This may be achieved by creating a simple `settings/apps.py` module that is imported from your primary settings with glob syntax like: `from .apps import *`.
-   - This file may define `SECRET_KEY` which is the one required non-staticfiles related settings and will be injected as `SECRET_KEY=staticfiles` when using this application.
+   - This may be achieved by creating a simple `settings/apps.py` module that is imported from your primary settings with glob syntax like: `from .apps import *` and a `settings/static.py` that imports it as well.
+   - Somewhere in that settings chain you must define `SECRET_KEY` which is the one required non-staticfiles related setting.
 2. Use the provided `staticfiles_noimport.finders.AppDirectoriesNoImportFinder` in your `STATICFILES_FINDERS` settings. (See included example.)
-3. Use `collectstatic` and `findstatic` directly without using the typical `manage.py` entrypoint. You'll need to set `DJANGO_SETTINGS_MODULE` for things to work as expected.
+3. Use `collectstatic` and `findstatic` directly without using the typical `manage.py` entrypoint. You'll need to inject your static-specific settings (e.g., `DJANGO_SETTINGS_MODULE=settings.static`) for things to work as expected.
 
 ## Example Usage
 
