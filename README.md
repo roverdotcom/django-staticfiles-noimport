@@ -1,5 +1,7 @@
 # Django Staticfiles Noimport
 
+[![Build Status](https://travis-ci.org/roverdotcom/django-staticfiles-noimport.svg?branch=master)](https://travis-ci.org/roverdotcom/django-staticfiles-noimport)
+
 django-staticfiles-import exists to allow Django's
 `collectstatic` management command to run with the
 bare minimum of environment variables so it can be
