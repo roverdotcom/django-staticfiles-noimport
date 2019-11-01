@@ -37,8 +37,12 @@ class TestCollectStatic(unittest.TestCase):
 
     def test_file_system_finder_static_fingerprint(self):
         subprocess.check_call(["collectstatic"])
-        self.assertTrue(os.path.isfile(os.path.join(self.static_root, "bar.09730bc4e0b6.txt")))
+        self.assertTrue(
+            os.path.isfile(os.path.join(self.static_root, "bar.09730bc4e0b6.txt"))
+        )
 
     def test_projectapp_static_fingerprint(self):
         subprocess.check_call(["collectstatic"])
-        self.assertTrue(os.path.isfile(os.path.join(self.static_root, "foo.45509a73b8fe.txt")))
+        self.assertTrue(
+            os.path.isfile(os.path.join(self.static_root, "foo.45509a73b8fe.txt"))
+        )

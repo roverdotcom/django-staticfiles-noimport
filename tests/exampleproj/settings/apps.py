@@ -16,4 +16,3 @@ INSTALLED_APPS = (
     "django.contrib.redirects",
     "projectapp",
 )
-
