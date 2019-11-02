@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-# Set DJANGO_SETTINGS_MODULE=rover.settings.static
 import os
 import sys
 import importlib
